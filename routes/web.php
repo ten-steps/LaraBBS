@@ -22,7 +22,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 //用户注册相关路由
-Route::get('register', 'Auth\RegisterController@showRegistrationFrom')->name('register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 
