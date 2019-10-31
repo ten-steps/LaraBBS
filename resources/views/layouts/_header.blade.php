@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light  navbar-static-top">
     <div class="container">
-        <a class="navbar-brand" href="{{url('/')}}}">LaraBBS</a>
+        <a class="navbar-brand" href="{{url('/')}}">LaraBBS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
