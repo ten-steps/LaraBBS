@@ -19,11 +19,11 @@
                     @else
                     <li class="nav-item dropdown">
                         <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button"  data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                            <img src=" {{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
+                            <img src=" {{ Auth::user()->gravatar() }}" class="img-responsive img-circle" width="30px" height="30px">
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('users.show',Auth::user()->id) }}">
                                <i class="fas fa-user mr-2"></i> 个人中心
                             </a>
                             <a class="dropdown-item" href="#">

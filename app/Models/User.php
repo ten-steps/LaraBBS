@@ -22,4 +22,10 @@ class User extends Authenticatable implements  MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function gravatar($size = '100')
+    {
+        $hash = md5(strtolower(trim($this->attributes['email'])));
+        return "http://cn.gravatar.com/avatar/{$hash}?s={$size}&d=identicon&r=PG";
+    }
 }

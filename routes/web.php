@@ -36,3 +36,6 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
+//用户个人中心
+Route::resource('users','UsersController',['only'=>['show','edit','update']]);
+
