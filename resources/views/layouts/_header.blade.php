@@ -26,7 +26,7 @@
                             <a class="dropdown-item" href="{{route('users.show',Auth::user()->id) }}">
                                <i class="fas fa-user mr-2"></i> 个人中心
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('users.edit',Auth::user()->id) }}">
                                 <i class="fas fa-edit mr-2"></i>编辑资料
                             </a>
                             <div class="dropdown-divider"></div>
