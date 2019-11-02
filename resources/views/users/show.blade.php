@@ -7,7 +7,7 @@
                 <img class="card-img-top" src="{{ $user->gravatar() }}" alt="{{ $user->name }}">
                 <div class="card-body">
                     <h5><strong>个人简介</strong></h5>
-                    <p>Lorem </p>
+                    <p>{{$user->introduction}} </p>
                     <hr>
                     <h5><strong>注册于</strong></h5>
                     <p>
