@@ -11,7 +11,7 @@
                     <hr>
                     <h5><strong>注册于</strong></h5>
                     <p>
-                        2019-11-1
+                        {{$user->created_at->diffForHumans() }}
                     </p>
                 </div>
             </div>
