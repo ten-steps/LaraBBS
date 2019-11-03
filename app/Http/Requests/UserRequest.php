@@ -24,6 +24,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+        dd(Auth::id());
         return [
             'name' => 'required|between:3,25|unique:users,name,' . Auth::id(),
             'email' => 'required|email',
