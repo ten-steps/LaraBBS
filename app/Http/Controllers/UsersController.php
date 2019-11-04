@@ -8,6 +8,10 @@ use App\Models\User;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['expect'=>'show']);
+    }
     public function show(User $user)
     {
         return view('users.show', compact('user'));
@@ -15,12 +19,14 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update');
         return view('users.edit', compact('user'));
     }
 
     public function update(UserRequest $request, User $user, ImageUploadHandler $upload)
     {
 //        dd($request->all());
+        $this->authorize('update');
         $data = $request->all();
         if ($request->avatar) {
             $result = $upload->save($request->avatar, 'avatars', $user->id,416);
