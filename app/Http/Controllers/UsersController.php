@@ -19,14 +19,14 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update');
+        $this->authorize('update',$user);
         return view('users.edit', compact('user'));
     }
 
     public function update(UserRequest $request, User $user, ImageUploadHandler $upload)
     {
 //        dd($request->all());
-        $this->authorize('update');
+        $this->authorize('update',$user);
         $data = $request->all();
         if ($request->avatar) {
             $result = $upload->save($request->avatar, 'avatars', $user->id,416);
