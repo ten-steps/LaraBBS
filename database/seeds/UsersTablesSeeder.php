@@ -17,8 +17,6 @@ class UsersTablesSeeder extends Seeder
         $avatars = [
             'https://avatars3.githubusercontent.com/u/41312704?s=460&v=4',
             'https://cdn.learnku.com/uploads/avatars/24327_1530087651.jpeg!/both/200x200',
-            'https://learnku.com/laravel/t/34445',
-            'https://learnku.com/users/52092'
         ];
 
         $users = factory(User::class)
