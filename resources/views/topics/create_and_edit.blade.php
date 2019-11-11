@@ -22,6 +22,7 @@
                         <input type="hidden" name="_method" value="PUT">
                         @else
                             <form action="{{route('topics.store')}}" method="POST" accept-charset="UTF-8">
+                                @endif
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 @include('shared._error')
                                 <div class="form-group">
@@ -31,7 +32,7 @@
                                     <select class="form-control" name="category_id" required id="">
                                         <option value="" hidden disabled selected>请选择分类</option>
                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{$category->id}}" {{$topic->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                                             @endforeach
                                     </select>
                                 </div>
@@ -41,7 +42,6 @@
                                 <div class="well well-sm">
                                     <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2 " aria-hidden="true"></i>提交</button>
                                 </div>
-                                @endif
                             </form>
             </div>
             </div>
