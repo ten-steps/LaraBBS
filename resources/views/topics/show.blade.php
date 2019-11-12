@@ -49,7 +49,7 @@
                             </button>
                         </form>
                     </div>
-                    @endcan
+                        @endcan
                 </div>
             </div>
         </div>
