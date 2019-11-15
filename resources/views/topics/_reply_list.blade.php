@@ -1,4 +1,5 @@
-<ul>
+<ul class="list-unstyled">
+    <hr>
     @foreach($replies as $index=>$reply)
         <li class="media" name="reply{{$reply->id}}" id="reply{{$reply->id}}">
             <div class="media-left">
