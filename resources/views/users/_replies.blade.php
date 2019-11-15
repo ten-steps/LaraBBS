@@ -23,3 +23,4 @@
 <div class="mt-4 pt-1">
     {!!  $replies->appends(Request::except('page'))->render() !!}
 </div>
+

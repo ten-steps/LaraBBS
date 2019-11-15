@@ -29,6 +29,7 @@ return [
             'AutoFormat.AutoParagraph' => true,
             'AutoFormat.RemoveEmpty'   => true,
         ],
+
         'test'    => [
             'Attr.EnableID' => 'true',
         ],
