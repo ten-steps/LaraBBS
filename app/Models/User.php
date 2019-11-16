@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifi able;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable implements  MustVerifyEmail
@@ -42,16 +42,23 @@ class User extends Authenticatable implements  MustVerifyEmail
         return $this->hasMany(Reply::class);
     }
 
+
     public function notify($instance)
     {
-        if($this->id == Auth::id){
+        if($this->id == Auth::id()){
             return;
         }
 
-        if (method_exists($instance,'toDatabase')){
+        if (method_exists($instance,'toDatabase')) {
             $this->increment('notification_count');
         }
-
         $this->laravelNotify($instance);
+    }
+
+    public function markAsRead()
+    {
+        $this->notification_count = 0;
+        $this->save();
+        $this->unreadNotifications->markAsRead();
     }
 }

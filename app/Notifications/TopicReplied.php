@@ -3,11 +3,9 @@
 namespace App\Notifications;
 
 use App\Models\Reply;
-use App\Models\Topic;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class TopicReplied extends Notification
 {
@@ -65,7 +63,6 @@ class TopicReplied extends Notification
     {
         $topic = $this->reply->topic;
         $link = $topic->link(['#reply'.$this->reply->id]);
-
         //存入数据库数据
         return [
           'reply_id'=>$this->reply->id,
