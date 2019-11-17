@@ -33,5 +33,10 @@ class UsersTablesSeeder extends Seeder
         $user->email = '1085530400@qq.com';
         $user->avatar = 'https://avatars3.githubusercontent.com/u/41312704?s=460&v=4';
         $user->save();
+
+        //  初始化用户角色，将1号用户设置为站长
+        $user->assignRole('Founder');
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
