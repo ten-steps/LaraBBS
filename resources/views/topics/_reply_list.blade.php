@@ -17,7 +17,8 @@
                     <span class="meta text-secondary"
                           title="{{$reply->created_at}}">{{$reply->created_at->diffForHumans()}}</span>
                     {{--                    回复删除按钮--}}
-                    <span class="meta float-right">
+                    @can('destroy',$reply)
+                        <span class="meta float-right">
                         <form action="{{route('replies.destroy',$reply->id)}}" onsubmit="return confirm('确定删除此评论？');"
                               method="post">
                             {{csrf_field()}}
@@ -28,6 +29,7 @@
                         </button>
                         </form>
                     </span>
+                    @endcan
                 </div>
                 <div class="reply-conent text-secondary">
                     {!! $reply->content !!}
