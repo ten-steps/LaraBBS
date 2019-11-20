@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Horizon\Horizon;
 
 class PagesController extends Controller
 {
