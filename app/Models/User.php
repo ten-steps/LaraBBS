@@ -28,7 +28,23 @@ class User extends Authenticatable implements  MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function setPasswordAttribute($value)
+    {
+        if (strlen($value) != 60){
+            $value = bcrypt($value);
+        }
+        $this->attributes['password'] =$value;
+    }
 
+    public function setAvatarAttribute($path)
+    {
+        // 如果不是以http 开头，那就是后台上传的 ，需要补全uri
+        if (!starts_with($path,'http')){
+            // 拼接完整的url
+            $path = config('app.url') . "/uploads/images/avatars/$path";
+        }
+        $this->attributes['avatar'] = $path;
+    }
     public function topics()
     {
         return $this->hasMany(Topic::class);
