@@ -7,6 +7,6 @@
             <a href="http://weibo.com/u/1837553744?is_hot=1"  target="_blank">Summer</a>
            感谢 <a href="https://learnku.com"  target="_blank">Laravel China</a> 社区
         </p>
-        <p class="float-right"><a href="">联系我们</a></p>
+        <p class="float-right"><a href="mailto:{{setting('contact_email')}}">联系我们</a></p>
     </div>
 </footer>

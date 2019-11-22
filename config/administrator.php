@@ -27,7 +27,7 @@ return array(
      * @type string
      */
     // 应用名称
-    'title' => env('APP_NAME','LaraBBS'),
+    'title' => env('APP_NAME', 'LaraBBS'),
 
     /*
      * The path to your model config directory
@@ -69,17 +69,19 @@ return array(
      */
 
     'menu' => [
-        '用户与权限'=>[
+        '用户与权限' => [
             'users',
             'roles',
             'permissions'
         ],
-        '内容管理'=>[
+        '内容管理' => [
             'categories',
             'topics',
             'replies'
-        ]
-
+        ],
+        '站点管理'=>[
+            'settings.site'
+        ],
     ],
 
     /*
@@ -121,7 +123,7 @@ return array(
      *
      * @type string
      */
-     // 返回主站按钮的链接
+    // 返回主站按钮的链接
     'back_to_site_path' => '/',
 
     /*
@@ -130,7 +132,7 @@ return array(
      * @type string
      */
 
-     // 当选项 permission 权限检测不通过时，会重定向到此设置路径
+    // 当选项 permission 权限检测不通过时，会重定向到此设置路径
     'login_path' => 'login',
 
     /*
