@@ -5,11 +5,11 @@ namespace App\Providers;
 use App\Models\Link;
 use App\Models\Reply;
 use App\Models\Topic;
+use App\Models\User;
 use App\Observers\LinkObserver;
 use App\Observers\ReplyObserver;
 use App\Observers\TopicObserver;
 use App\Observers\UserObserver;
-use App\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
