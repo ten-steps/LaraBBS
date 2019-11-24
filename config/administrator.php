@@ -77,10 +77,11 @@ return array(
         '内容管理' => [
             'categories',
             'topics',
-            'replies'
+            'replies',
         ],
         '站点管理'=>[
-            'settings.site'
+            'settings.site',
+             'links'
         ],
     ],
 
