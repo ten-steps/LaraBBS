@@ -17,6 +17,8 @@ class User extends Authenticatable implements  MustVerifyEmail
     }
     use HasRoles;
     use Traits\ActiveUserHelper;
+    use Traits\LastActivedAtHelper;
+
     protected $fillable = [
         'name', 'email', 'password','introduction','avatar'
     ];
@@ -46,6 +48,8 @@ class User extends Authenticatable implements  MustVerifyEmail
         }
         $this->attributes['avatar'] = $path;
     }
+
+
     public function topics()
     {
         return $this->hasMany(Topic::class);
@@ -80,4 +84,5 @@ class User extends Authenticatable implements  MustVerifyEmail
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
+
 }

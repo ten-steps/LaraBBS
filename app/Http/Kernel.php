@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // 全局中间件
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
@@ -27,6 +28,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
+        // Web 中间件组，应用于 routes/web.php 路由文件
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -36,8 +38,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\EnsureEmailIsVerified::class,
+            // 记录用户最后的活跃时间
+            \App\Http\Middleware\RecordLastActiveTime::class
         ],
-
+        // API 中间件组，应用于 routes/api.php 路由文件，
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -51,6 +55,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // 中间件别名设置，允许你使用别名调用中间件，例如上面的 api 中间件组调用
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -70,6 +75,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // 设定中间件优先级，此数组定义了除『全局中间件』以外的中间件执行顺序
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
