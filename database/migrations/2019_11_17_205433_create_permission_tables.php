@@ -21,6 +21,7 @@ class CreatePermissionTables extends Migration
             $table->string('name');
             $table->string('guard_name');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 
         Schema::create($tableNames['roles'], function (Blueprint $table) {
@@ -28,6 +29,7 @@ class CreatePermissionTables extends Migration
             $table->string('name');
             $table->string('guard_name');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames) {
@@ -44,6 +46,7 @@ class CreatePermissionTables extends Migration
 
             $table->primary(['permission_id', $columnNames['model_morph_key'], 'model_type'],
                     'model_has_permissions_permission_model_type_primary');
+            $table->engine = 'InnoDB';
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {
@@ -60,6 +63,7 @@ class CreatePermissionTables extends Migration
 
             $table->primary(['role_id', $columnNames['model_morph_key'], 'model_type'],
                     'model_has_roles_role_model_type_primary');
+            $table->engine = 'InnoDB';
         });
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
@@ -77,6 +81,7 @@ class CreatePermissionTables extends Migration
                 ->onDelete('cascade');
 
             $table->primary(['permission_id', 'role_id'], 'role_has_permissions_permission_id_role_id_primary');
+            $table->engine = 'InnoDB';
         });
 
         app('cache')

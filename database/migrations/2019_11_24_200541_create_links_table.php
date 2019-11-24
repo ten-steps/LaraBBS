@@ -18,6 +18,7 @@ class CreateLinksTable extends Migration
             $table->string('title')->comment('资源的描述')->index();
             $table->string('link')->comment('资源的链接')->index();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

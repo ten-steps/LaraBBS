@@ -19,6 +19,7 @@ class CreateTopicsTable extends Migration
             $table->text('excerpt')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 	}
 

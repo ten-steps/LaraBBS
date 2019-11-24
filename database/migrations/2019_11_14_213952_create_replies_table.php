@@ -9,10 +9,11 @@ class CreateRepliesTable extends Migration
 	{
 		Schema::create('replies', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('topic_id')->default(0)->index();
-            $table->integer('user_id')->default(0)->index();
+            $table->integer('topic_id')->unsigned()->default(0)->index();
+            $table->integer('user_id')->unsigned()->default(0)->index();
             $table->text('content');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 	}
 
