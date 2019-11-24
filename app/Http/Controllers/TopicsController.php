@@ -23,8 +23,7 @@ class TopicsController extends Controller
 //		$topics = Topic::with('user','category')->paginate();
         $topics = $topic->withOrder($request->order)->paginate(20);
         $active_users = $user->getActiveUsers();
-        dd($active_users);
-        return view('topics.index', compact('topics'));
+        return view('topics.index', compact('topics','active_users'));
     }
 
     public function show(Request $request,Topic $topic)

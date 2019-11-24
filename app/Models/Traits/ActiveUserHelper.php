@@ -27,7 +27,7 @@ trait ActiveUserHelper
     public function getActiveUsers()
     {
         return Cache::remember($this->catch_key,$this->catch_expire_in_minutes,function (){
-            $this->calculateActiveUsers();
+            return $this->calculateActiveUsers();
         });
     }
 
